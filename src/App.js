@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { useState } from 'react';
+import NavBar from './Components/NavBar';
+import MainBox from './Components/MainBox';
 
 function App() {
+
+  const [view, setView]= useState(false);
+
+  function setType(arg){
+    setView(arg);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{display:"flex", height:"100%", background:"#dfe6e9"}}>
+      <NavBar type={setType}></NavBar>
+      <MainBox view={view}></MainBox>
     </div>
   );
 }
